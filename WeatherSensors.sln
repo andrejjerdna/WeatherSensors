@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ozon256.WeatherSensors.Contracts", "src\Ozon256.WeatherSensors.Contracts\Ozon256.WeatherSensors.Contracts.csproj", "{C73AB785-0D17-4342-ACCB-A5266E403733}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ozon256.WeatherSensors.DataProcessorClient", "src\Ozon256.WeatherSensors.DataProcessorClient\Ozon256.WeatherSensors.DataProcessorClient.csproj", "{3CA333D8-25D8-488C-B16D-5B2F9C608780}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ozon256.WeatherSensors.SensorsEmulatorService", "src\Ozon256.WeatherSensors.SensorsEmulatorService\Ozon256.WeatherSensors.SensorsEmulatorService.csproj", "{FF703DCB-4E0A-4124-BA33-06B0A3C7ECB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C73AB785-0D17-4342-ACCB-A5266E403733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C73AB785-0D17-4342-ACCB-A5266E403733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C73AB785-0D17-4342-ACCB-A5266E403733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C73AB785-0D17-4342-ACCB-A5266E403733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CA333D8-25D8-488C-B16D-5B2F9C608780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CA333D8-25D8-488C-B16D-5B2F9C608780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CA333D8-25D8-488C-B16D-5B2F9C608780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CA333D8-25D8-488C-B16D-5B2F9C608780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF703DCB-4E0A-4124-BA33-06B0A3C7ECB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF703DCB-4E0A-4124-BA33-06B0A3C7ECB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF703DCB-4E0A-4124-BA33-06B0A3C7ECB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF703DCB-4E0A-4124-BA33-06B0A3C7ECB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
