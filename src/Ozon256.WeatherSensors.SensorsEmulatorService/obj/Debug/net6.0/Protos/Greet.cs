@@ -24,35 +24,39 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
     static GreetReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJQcm90b3MvZ3JlZXQucHJvdG8SBWdyZWV0IhwKDEhlbGxvUmVxdWVzdBIM",
-            "CgRuYW1lGAEgASgJIh0KCkhlbGxvUmVwbHkSDwoHbWVzc2FnZRgBIAEoCTI9",
-            "CgdHcmVldGVyEjIKCFNheUhlbGxvEhMuZ3JlZXQuSGVsbG9SZXF1ZXN0GhEu",
-            "Z3JlZXQuSGVsbG9SZXBseUIwqgItT3pvbjI1Ni5XZWF0aGVyU2Vuc29ycy5T",
-            "ZW5zb3JzRW11bGF0b3JTZXJ2aWNlYgZwcm90bzM="));
+            "ChJQcm90b3MvZ3JlZXQucHJvdG8SB0dyZWV0ZXIaG2dvb2dsZS9wcm90b2J1",
+            "Zi9lbXB0eS5wcm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90",
+            "byKFAQoSU2Vuc29yRGF0YVJlc3BvbnNlEgwKBGd1aWQYASABKAkSEwoLdGVt",
+            "cGVyYXR1cmUYAiABKAUSEAoIaHVtaWRpdHkYAyABKAUSCwoDcHBtGAQgASgF",
+            "Ei0KCXRpbWVzdGFtcBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh",
+            "bXAigAEKEVNlbnNvckRhdGFSZXF1ZXN0EhQKDHN1YnNjcmlwdGlvbhgBIAMo",
+            "CRIWCg51bnN1YnNjcmlwdGlvbhgCIAMoCRIeChZhZGRvdXRzaWRlc2Vuc29y",
+            "c2NvdW50GAMgASgFEh0KFWFkZGluc2lkZXNlbnNvcnNjb3VudBgEIAEoBTJY",
+            "CgdTZW5zb3JzEk0KDkdldFNlbnNvcnNEYXRhEhouR3JlZXRlci5TZW5zb3JE",
+            "YXRhUmVxdWVzdBobLkdyZWV0ZXIuU2Vuc29yRGF0YVJlc3BvbnNlKAEwAUIw",
+            "qgItT3pvbjI1Ni5XZWF0aGVyU2Vuc29ycy5TZW5zb3JzRW11bGF0b3JTZXJ2",
+            "aWNlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloRequest), global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloRequest.Parser, new[]{ "Name" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloReply), global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloReply.Parser, new[]{ "Message" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse), global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse.Parser, new[]{ "Guid", "Temperature", "Humidity", "Ppm", "Timestamp" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest), global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest.Parser, new[]{ "Subscription", "Unsubscription", "Addoutsidesensorscount", "Addinsidesensorscount" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  /// <summary>
-  /// The request message containing the user's name.
-  /// </summary>
-  public sealed partial class HelloRequest : pb::IMessage<HelloRequest>
+  public sealed partial class SensorDataResponse : pb::IMessage<SensorDataResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<HelloRequest> _parser = new pb::MessageParser<HelloRequest>(() => new HelloRequest());
+    private static readonly pb::MessageParser<SensorDataResponse> _parser = new pb::MessageParser<SensorDataResponse>(() => new SensorDataResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<HelloRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<SensorDataResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -68,7 +72,7 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public HelloRequest() {
+    public SensorDataResponse() {
       OnConstruction();
     }
 
@@ -76,45 +80,101 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public HelloRequest(HelloRequest other) : this() {
-      name_ = other.name_;
+    public SensorDataResponse(SensorDataResponse other) : this() {
+      guid_ = other.guid_;
+      temperature_ = other.temperature_;
+      humidity_ = other.humidity_;
+      ppm_ = other.ppm_;
+      timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public HelloRequest Clone() {
-      return new HelloRequest(this);
+    public SensorDataResponse Clone() {
+      return new SensorDataResponse(this);
     }
 
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
+    /// <summary>Field number for the "guid" field.</summary>
+    public const int GuidFieldNumber = 1;
+    private string guid_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Name {
-      get { return name_; }
+    public string Guid {
+      get { return guid_; }
       set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        guid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "temperature" field.</summary>
+    public const int TemperatureFieldNumber = 2;
+    private int temperature_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Temperature {
+      get { return temperature_; }
+      set {
+        temperature_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "humidity" field.</summary>
+    public const int HumidityFieldNumber = 3;
+    private int humidity_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Humidity {
+      get { return humidity_; }
+      set {
+        humidity_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ppm" field.</summary>
+    public const int PpmFieldNumber = 4;
+    private int ppm_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Ppm {
+      get { return ppm_; }
+      set {
+        ppm_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "timestamp" field.</summary>
+    public const int TimestampFieldNumber = 5;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp Timestamp {
+      get { return timestamp_; }
+      set {
+        timestamp_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as HelloRequest);
+      return Equals(other as SensorDataResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(HelloRequest other) {
+    public bool Equals(SensorDataResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Name != other.Name) return false;
+      if (Guid != other.Guid) return false;
+      if (Temperature != other.Temperature) return false;
+      if (Humidity != other.Humidity) return false;
+      if (Ppm != other.Ppm) return false;
+      if (!object.Equals(Timestamp, other.Timestamp)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -122,7 +182,11 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Guid.Length != 0) hash ^= Guid.GetHashCode();
+      if (Temperature != 0) hash ^= Temperature.GetHashCode();
+      if (Humidity != 0) hash ^= Humidity.GetHashCode();
+      if (Ppm != 0) hash ^= Ppm.GetHashCode();
+      if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -141,9 +205,25 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Name.Length != 0) {
+      if (Guid.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Name);
+        output.WriteString(Guid);
+      }
+      if (Temperature != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Temperature);
+      }
+      if (Humidity != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Humidity);
+      }
+      if (Ppm != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Ppm);
+      }
+      if (timestamp_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -155,9 +235,25 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Name.Length != 0) {
+      if (Guid.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Name);
+        output.WriteString(Guid);
+      }
+      if (Temperature != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Temperature);
+      }
+      if (Humidity != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Humidity);
+      }
+      if (Ppm != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Ppm);
+      }
+      if (timestamp_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -169,8 +265,20 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      if (Guid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Guid);
+      }
+      if (Temperature != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Temperature);
+      }
+      if (Humidity != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Humidity);
+      }
+      if (Ppm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Ppm);
+      }
+      if (timestamp_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Timestamp);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -180,12 +288,27 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(HelloRequest other) {
+    public void MergeFrom(SensorDataResponse other) {
       if (other == null) {
         return;
       }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
+      if (other.Guid.Length != 0) {
+        Guid = other.Guid;
+      }
+      if (other.Temperature != 0) {
+        Temperature = other.Temperature;
+      }
+      if (other.Humidity != 0) {
+        Humidity = other.Humidity;
+      }
+      if (other.Ppm != 0) {
+        Ppm = other.Ppm;
+      }
+      if (other.timestamp_ != null) {
+        if (timestamp_ == null) {
+          Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        Timestamp.MergeFrom(other.Timestamp);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -203,7 +326,26 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Name = input.ReadString();
+            Guid = input.ReadString();
+            break;
+          }
+          case 16: {
+            Temperature = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Humidity = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Ppm = input.ReadInt32();
+            break;
+          }
+          case 42: {
+            if (timestamp_ == null) {
+              Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(Timestamp);
             break;
           }
         }
@@ -222,7 +364,26 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Name = input.ReadString();
+            Guid = input.ReadString();
+            break;
+          }
+          case 16: {
+            Temperature = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Humidity = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Ppm = input.ReadInt32();
+            break;
+          }
+          case 42: {
+            if (timestamp_ == null) {
+              Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(Timestamp);
             break;
           }
         }
@@ -232,19 +393,16 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
 
   }
 
-  /// <summary>
-  /// The response message containing the greetings.
-  /// </summary>
-  public sealed partial class HelloReply : pb::IMessage<HelloReply>
+  public sealed partial class SensorDataRequest : pb::IMessage<SensorDataRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<HelloReply> _parser = new pb::MessageParser<HelloReply>(() => new HelloReply());
+    private static readonly pb::MessageParser<SensorDataRequest> _parser = new pb::MessageParser<SensorDataRequest>(() => new SensorDataRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<HelloReply> Parser { get { return _parser; } }
+    public static pb::MessageParser<SensorDataRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -260,7 +418,7 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public HelloReply() {
+    public SensorDataRequest() {
       OnConstruction();
     }
 
@@ -268,45 +426,85 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public HelloReply(HelloReply other) : this() {
-      message_ = other.message_;
+    public SensorDataRequest(SensorDataRequest other) : this() {
+      subscription_ = other.subscription_.Clone();
+      unsubscription_ = other.unsubscription_.Clone();
+      addoutsidesensorscount_ = other.addoutsidesensorscount_;
+      addinsidesensorscount_ = other.addinsidesensorscount_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public HelloReply Clone() {
-      return new HelloReply(this);
+    public SensorDataRequest Clone() {
+      return new SensorDataRequest(this);
     }
 
-    /// <summary>Field number for the "message" field.</summary>
-    public const int MessageFieldNumber = 1;
-    private string message_ = "";
+    /// <summary>Field number for the "subscription" field.</summary>
+    public const int SubscriptionFieldNumber = 1;
+    private static readonly pb::FieldCodec<string> _repeated_subscription_codec
+        = pb::FieldCodec.ForString(10);
+    private readonly pbc::RepeatedField<string> subscription_ = new pbc::RepeatedField<string>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Message {
-      get { return message_; }
+    public pbc::RepeatedField<string> Subscription {
+      get { return subscription_; }
+    }
+
+    /// <summary>Field number for the "unsubscription" field.</summary>
+    public const int UnsubscriptionFieldNumber = 2;
+    private static readonly pb::FieldCodec<string> _repeated_unsubscription_codec
+        = pb::FieldCodec.ForString(18);
+    private readonly pbc::RepeatedField<string> unsubscription_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<string> Unsubscription {
+      get { return unsubscription_; }
+    }
+
+    /// <summary>Field number for the "addoutsidesensorscount" field.</summary>
+    public const int AddoutsidesensorscountFieldNumber = 3;
+    private int addoutsidesensorscount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Addoutsidesensorscount {
+      get { return addoutsidesensorscount_; }
       set {
-        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        addoutsidesensorscount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "addinsidesensorscount" field.</summary>
+    public const int AddinsidesensorscountFieldNumber = 4;
+    private int addinsidesensorscount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Addinsidesensorscount {
+      get { return addinsidesensorscount_; }
+      set {
+        addinsidesensorscount_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as HelloReply);
+      return Equals(other as SensorDataRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(HelloReply other) {
+    public bool Equals(SensorDataRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Message != other.Message) return false;
+      if(!subscription_.Equals(other.subscription_)) return false;
+      if(!unsubscription_.Equals(other.unsubscription_)) return false;
+      if (Addoutsidesensorscount != other.Addoutsidesensorscount) return false;
+      if (Addinsidesensorscount != other.Addinsidesensorscount) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -314,7 +512,10 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      hash ^= subscription_.GetHashCode();
+      hash ^= unsubscription_.GetHashCode();
+      if (Addoutsidesensorscount != 0) hash ^= Addoutsidesensorscount.GetHashCode();
+      if (Addinsidesensorscount != 0) hash ^= Addinsidesensorscount.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -333,9 +534,15 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Message.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Message);
+      subscription_.WriteTo(output, _repeated_subscription_codec);
+      unsubscription_.WriteTo(output, _repeated_unsubscription_codec);
+      if (Addoutsidesensorscount != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Addoutsidesensorscount);
+      }
+      if (Addinsidesensorscount != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Addinsidesensorscount);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -347,9 +554,15 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Message.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Message);
+      subscription_.WriteTo(ref output, _repeated_subscription_codec);
+      unsubscription_.WriteTo(ref output, _repeated_unsubscription_codec);
+      if (Addoutsidesensorscount != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Addoutsidesensorscount);
+      }
+      if (Addinsidesensorscount != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Addinsidesensorscount);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -361,8 +574,13 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Message.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
+      size += subscription_.CalculateSize(_repeated_subscription_codec);
+      size += unsubscription_.CalculateSize(_repeated_unsubscription_codec);
+      if (Addoutsidesensorscount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Addoutsidesensorscount);
+      }
+      if (Addinsidesensorscount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Addinsidesensorscount);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -372,12 +590,17 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(HelloReply other) {
+    public void MergeFrom(SensorDataRequest other) {
       if (other == null) {
         return;
       }
-      if (other.Message.Length != 0) {
-        Message = other.Message;
+      subscription_.Add(other.subscription_);
+      unsubscription_.Add(other.unsubscription_);
+      if (other.Addoutsidesensorscount != 0) {
+        Addoutsidesensorscount = other.Addoutsidesensorscount;
+      }
+      if (other.Addinsidesensorscount != 0) {
+        Addinsidesensorscount = other.Addinsidesensorscount;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -395,7 +618,19 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Message = input.ReadString();
+            subscription_.AddEntriesFrom(input, _repeated_subscription_codec);
+            break;
+          }
+          case 18: {
+            unsubscription_.AddEntriesFrom(input, _repeated_unsubscription_codec);
+            break;
+          }
+          case 24: {
+            Addoutsidesensorscount = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Addinsidesensorscount = input.ReadInt32();
             break;
           }
         }
@@ -414,7 +649,19 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Message = input.ReadString();
+            subscription_.AddEntriesFrom(ref input, _repeated_subscription_codec);
+            break;
+          }
+          case 18: {
+            unsubscription_.AddEntriesFrom(ref input, _repeated_unsubscription_codec);
+            break;
+          }
+          case 24: {
+            Addoutsidesensorscount = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Addinsidesensorscount = input.ReadInt32();
             break;
           }
         }

@@ -2,5 +2,24 @@
 
 public interface ISensor
 {
+    /// <summary>
+    /// Guid
+    /// </summary>
+    public Guid Guid { get; }
     
+    /// <summary>
+    /// Sensor type
+    /// </summary>
+    SensorType SensorType { get; }
+    
+    /// <summary>
+    /// Get sensor data
+    /// </summary>
+    /// <returns></returns>
+    ISensorData GetData();
+    
+    /// <summary>
+    /// Latest sensor data 
+    /// </summary>
+    ISensorData LastData { get; }
 }

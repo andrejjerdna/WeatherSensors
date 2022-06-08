@@ -1,0 +1,12 @@
+{
+  "details": {
+    "methodFqn": "Greeter.Sensors.GetSensorsData"
+  },
+  "requests": [
+    {
+      "location": "GetSensorsData-request.json"
+    }
+  ],
+  "operationType": "serverStreaming",
+  "invokerName": "grpc"
+}

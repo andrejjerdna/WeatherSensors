@@ -2,20 +2,42 @@ syntax = "proto3";
 
 option csharp_namespace = "Ozon256.WeatherSensors.SensorsEmulatorService";
 
-package greet;
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
 
-// The greeting service definition.
-service Greeter {
-  // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply);
+package Greeter;
+
+service Sensors {
+  rpc GetSensorsData(stream ActionMessage) returns (stream SensorDataResponse);
 }
 
-// The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
+message SensorDataResponse
+{
+  string guid = 1;
+  int32 temperature = 2;
+  int32 humidity = 3;
+  int32 ppm = 4;
+  SensorType sensorType = 5;
+  google.protobuf.Timestamp timestamp = 6;
 }
 
-// The response message containing the greetings.
-message HelloReply {
-  string message = 1;
+message ActionMessage {
+  oneof action {
+    AddSensorRequest add = 1;
+    RemoveSensorRequest remove = 2;
+  }
+}
+
+message AddSensorRequest {
+  repeated string guid = 1;
+  SensorType sensorType = 2;
+}
+
+message RemoveSensorRequest {
+  string guid = 1;
+}
+
+enum SensorType {
+  INSIDE = 0;
+  OUTSIDE = 1;
 }

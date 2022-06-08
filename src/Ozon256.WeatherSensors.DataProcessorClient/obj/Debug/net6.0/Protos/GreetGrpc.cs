@@ -7,13 +7,13 @@
 
 using grpc = global::Grpc.Core;
 
-namespace Ozon256.WeatherSensors.DataProcessorClient {
+namespace Ozon256.WeatherSensors.SensorsEmulatorService {
   /// <summary>
   /// The greeting service definition.
   /// </summary>
-  public static partial class Greeter
+  public static partial class Sensors
   {
-    static readonly string __ServiceName = "greet.Greeter";
+    static readonly string __ServiceName = "Greeter.Sensors";
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
@@ -49,59 +49,67 @@ namespace Ozon256.WeatherSensors.DataProcessorClient {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Ozon256.WeatherSensors.DataProcessorClient.HelloRequest> __Marshaller_greet_HelloRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Ozon256.WeatherSensors.DataProcessorClient.HelloRequest.Parser));
+    static readonly grpc::Marshaller<global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest> __Marshaller_Greeter_SensorDataRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Ozon256.WeatherSensors.DataProcessorClient.HelloReply> __Marshaller_greet_HelloReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Ozon256.WeatherSensors.DataProcessorClient.HelloReply.Parser));
+    static readonly grpc::Marshaller<global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse> __Marshaller_Greeter_SensorDataResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Ozon256.WeatherSensors.DataProcessorClient.HelloRequest, global::Ozon256.WeatherSensors.DataProcessorClient.HelloReply> __Method_SayHello = new grpc::Method<global::Ozon256.WeatherSensors.DataProcessorClient.HelloRequest, global::Ozon256.WeatherSensors.DataProcessorClient.HelloReply>(
-        grpc::MethodType.Unary,
+    static readonly grpc::Method<global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest, global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse> __Method_GetSensorsData = new grpc::Method<global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest, global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse>(
+        grpc::MethodType.DuplexStreaming,
         __ServiceName,
-        "SayHello",
-        __Marshaller_greet_HelloRequest,
-        __Marshaller_greet_HelloReply);
+        "GetSensorsData",
+        __Marshaller_Greeter_SensorDataRequest,
+        __Marshaller_Greeter_SensorDataResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Ozon256.WeatherSensors.DataProcessorClient.GreetReflection.Descriptor.Services[0]; }
+      get { return global::Ozon256.WeatherSensors.SensorsEmulatorService.GreetReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of Greeter</summary>
-    [grpc::BindServiceMethod(typeof(Greeter), "BindService")]
-    public abstract partial class GreeterBase
+    /// <summary>Client for Sensors</summary>
+    public partial class SensorsClient : grpc::ClientBase<SensorsClient>
     {
-      /// <summary>
-      /// Sends a greeting
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      /// <summary>Creates a new client for Sensors</summary>
+      /// <param name="channel">The channel to use to make remote calls.</param>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Ozon256.WeatherSensors.DataProcessorClient.HelloReply> SayHello(global::Ozon256.WeatherSensors.DataProcessorClient.HelloRequest request, grpc::ServerCallContext context)
+      public SensorsClient(grpc::ChannelBase channel) : base(channel)
       {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+      /// <summary>Creates a new client for Sensors that uses a custom <c>CallInvoker</c>.</summary>
+      /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public SensorsClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      {
+      }
+      /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      protected SensorsClient() : base()
+      {
+      }
+      /// <summary>Protected constructor to allow creation of configured clients.</summary>
+      /// <param name="configuration">The client configuration.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      protected SensorsClient(ClientBaseConfiguration configuration) : base(configuration)
+      {
       }
 
-    }
-
-    /// <summary>Creates service definition that can be registered with a server</summary>
-    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static grpc::ServerServiceDefinition BindService(GreeterBase serviceImpl)
-    {
-      return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SayHello, serviceImpl.SayHello).Build();
-    }
-
-    /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
-    /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
-    /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
-    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static void BindService(grpc::ServiceBinderBase serviceBinder, GreeterBase serviceImpl)
-    {
-      serviceBinder.AddMethod(__Method_SayHello, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Ozon256.WeatherSensors.DataProcessorClient.HelloRequest, global::Ozon256.WeatherSensors.DataProcessorClient.HelloReply>(serviceImpl.SayHello));
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncDuplexStreamingCall<global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest, global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse> GetSensorsData(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetSensorsData(new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncDuplexStreamingCall<global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest, global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse> GetSensorsData(grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncDuplexStreamingCall(__Method_GetSensorsData, null, options);
+      }
+      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      protected override SensorsClient NewInstance(ClientBaseConfiguration configuration)
+      {
+        return new SensorsClient(configuration);
+      }
     }
 
   }

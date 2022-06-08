@@ -238,6 +238,29 @@
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
         }
+      },
+      "Ozon256.WeatherSensors.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Ozon256.WeatherSensors.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ozon256.WeatherSensors.Contracts.dll": {}
+        }
+      },
+      "Ozon256.WeatherSensors.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Ozon256.WeatherSensors.Contracts": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Ozon256.WeatherSensors.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ozon256.WeatherSensors.Core.dll": {}
+        }
       }
     }
   },
@@ -649,11 +672,23 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Ozon256.WeatherSensors.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../Ozon256.WeatherSensors.Contracts/Ozon256.WeatherSensors.Contracts.csproj",
+      "msbuildProject": "../Ozon256.WeatherSensors.Contracts/Ozon256.WeatherSensors.Contracts.csproj"
+    },
+    "Ozon256.WeatherSensors.Core/1.0.0": {
+      "type": "project",
+      "path": "../Ozon256.WeatherSensors.Core/Ozon256.WeatherSensors.Core.csproj",
+      "msbuildProject": "../Ozon256.WeatherSensors.Core/Ozon256.WeatherSensors.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Grpc.AspNetCore >= 2.46.0"
+      "Grpc.AspNetCore >= 2.46.0",
+      "Ozon256.WeatherSensors.Contracts >= 1.0.0",
+      "Ozon256.WeatherSensors.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -689,7 +724,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\33pro\\RiderProjects\\homework-2\\src\\Ozon256.WeatherSensors.Contracts\\Ozon256.WeatherSensors.Contracts.csproj": {
+              "projectPath": "C:\\Users\\33pro\\RiderProjects\\homework-2\\src\\Ozon256.WeatherSensors.Contracts\\Ozon256.WeatherSensors.Contracts.csproj"
+            },
+            "C:\\Users\\33pro\\RiderProjects\\homework-2\\src\\Ozon256.WeatherSensors.Core\\Ozon256.WeatherSensors.Core.csproj": {
+              "projectPath": "C:\\Users\\33pro\\RiderProjects\\homework-2\\src\\Ozon256.WeatherSensors.Core\\Ozon256.WeatherSensors.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

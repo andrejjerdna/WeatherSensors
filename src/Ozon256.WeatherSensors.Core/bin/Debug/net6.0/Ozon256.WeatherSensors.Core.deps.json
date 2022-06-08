@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Ozon256.WeatherSensors.Core/1.0.0": {
+        "dependencies": {
+          "Ozon256.WeatherSensors.Contracts": "1.0.0"
+        },
+        "runtime": {
+          "Ozon256.WeatherSensors.Core.dll": {}
+        }
+      },
+      "Ozon256.WeatherSensors.Contracts/1.0.0": {
+        "runtime": {
+          "Ozon256.WeatherSensors.Contracts.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ozon256.WeatherSensors.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Ozon256.WeatherSensors.Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

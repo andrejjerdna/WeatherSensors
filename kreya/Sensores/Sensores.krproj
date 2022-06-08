@@ -1,0 +1,19 @@
+{
+  "id": "dec3e1a3-b291-4e59-bbfd-a9f821d2d1b5",
+  "importStreams": [
+    {
+      "id": "a9cff7bc-316f-49be-bb4c-e462c4b004cc",
+      "name": "proto-file",
+      "importerName": "ProtoFile",
+      "createMissingOperations": true,
+      "options": {
+        "files": [
+          "../../src/Ozon256.WeatherSensors.SensorsEmulatorService/Protos"
+        ],
+        "importPaths": []
+      }
+    }
+  ],
+  "authConfigs": [],
+  "certificates": []
+}

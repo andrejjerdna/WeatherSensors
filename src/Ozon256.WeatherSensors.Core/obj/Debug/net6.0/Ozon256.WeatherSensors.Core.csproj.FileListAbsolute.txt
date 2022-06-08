@@ -1,0 +1,15 @@
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\bin\Debug\net6.0\Ozon256.WeatherSensors.Core.deps.json
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\bin\Debug\net6.0\Ozon256.WeatherSensors.Core.dll
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\bin\Debug\net6.0\Ozon256.WeatherSensors.Core.pdb
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\bin\Debug\net6.0\Ozon256.WeatherSensors.Contracts.dll
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\bin\Debug\net6.0\Ozon256.WeatherSensors.Contracts.pdb
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\obj\Debug\net6.0\Ozon256.WeatherSensors.Core.csproj.AssemblyReference.cache
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\obj\Debug\net6.0\Ozon256.WeatherSensors.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\obj\Debug\net6.0\Ozon256.WeatherSensors.Core.AssemblyInfoInputs.cache
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\obj\Debug\net6.0\Ozon256.WeatherSensors.Core.AssemblyInfo.cs
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\obj\Debug\net6.0\Ozon256.WeatherSensors.Core.csproj.CoreCompileInputs.cache
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\obj\Debug\net6.0\Ozon256.WeatherSensors.Core.csproj.CopyComplete
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\obj\Debug\net6.0\Ozon256.WeatherSensors.Core.dll
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\obj\Debug\net6.0\refint\Ozon256.WeatherSensors.Core.dll
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\obj\Debug\net6.0\Ozon256.WeatherSensors.Core.pdb
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Core\obj\Debug\net6.0\ref\Ozon256.WeatherSensors.Core.dll

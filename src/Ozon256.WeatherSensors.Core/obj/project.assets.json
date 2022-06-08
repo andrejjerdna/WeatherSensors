@@ -1,0 +1,97 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "Ozon256.WeatherSensors.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Ozon256.WeatherSensors.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ozon256.WeatherSensors.Contracts.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ozon256.WeatherSensors.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../Ozon256.WeatherSensors.Contracts/Ozon256.WeatherSensors.Contracts.csproj",
+      "msbuildProject": "../Ozon256.WeatherSensors.Contracts/Ozon256.WeatherSensors.Contracts.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "Ozon256.WeatherSensors.Contracts >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\33pro\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\33pro\\RiderProjects\\homework-2\\src\\Ozon256.WeatherSensors.Core\\Ozon256.WeatherSensors.Core.csproj",
+      "projectName": "Ozon256.WeatherSensors.Core",
+      "projectPath": "C:\\Users\\33pro\\RiderProjects\\homework-2\\src\\Ozon256.WeatherSensors.Core\\Ozon256.WeatherSensors.Core.csproj",
+      "packagesPath": "C:\\Users\\33pro\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\33pro\\RiderProjects\\homework-2\\src\\Ozon256.WeatherSensors.Core\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\33pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\33pro\\AppData\\Roaming\\LementLocalNugetRepository": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.lement.pro/api/odata": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "C:\\Users\\33pro\\RiderProjects\\homework-2\\src\\Ozon256.WeatherSensors.Contracts\\Ozon256.WeatherSensors.Contracts.csproj": {
+              "projectPath": "C:\\Users\\33pro\\RiderProjects\\homework-2\\src\\Ozon256.WeatherSensors.Contracts\\Ozon256.WeatherSensors.Contracts.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

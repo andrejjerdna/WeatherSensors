@@ -8,12 +8,9 @@
 using grpc = global::Grpc.Core;
 
 namespace Ozon256.WeatherSensors.SensorsEmulatorService {
-  /// <summary>
-  /// The greeting service definition.
-  /// </summary>
-  public static partial class Greeter
+  public static partial class Sensors
   {
-    static readonly string __ServiceName = "greet.Greeter";
+    static readonly string __ServiceName = "Greeter.Sensors";
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
@@ -49,17 +46,17 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloRequest> __Marshaller_greet_HelloRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloRequest.Parser));
+    static readonly grpc::Marshaller<global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest> __Marshaller_Greeter_SensorDataRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloReply> __Marshaller_greet_HelloReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloReply.Parser));
+    static readonly grpc::Marshaller<global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse> __Marshaller_Greeter_SensorDataResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloRequest, global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloReply> __Method_SayHello = new grpc::Method<global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloRequest, global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloReply>(
-        grpc::MethodType.Unary,
+    static readonly grpc::Method<global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest, global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse> __Method_GetSensorsData = new grpc::Method<global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest, global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse>(
+        grpc::MethodType.DuplexStreaming,
         __ServiceName,
-        "SayHello",
-        __Marshaller_greet_HelloRequest,
-        __Marshaller_greet_HelloReply);
+        "GetSensorsData",
+        __Marshaller_Greeter_SensorDataRequest,
+        __Marshaller_Greeter_SensorDataResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -67,18 +64,12 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
       get { return global::Ozon256.WeatherSensors.SensorsEmulatorService.GreetReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of Greeter</summary>
-    [grpc::BindServiceMethod(typeof(Greeter), "BindService")]
-    public abstract partial class GreeterBase
+    /// <summary>Base class for server-side implementations of Sensors</summary>
+    [grpc::BindServiceMethod(typeof(Sensors), "BindService")]
+    public abstract partial class SensorsBase
     {
-      /// <summary>
-      /// Sends a greeting
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloReply> SayHello(global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task GetSensorsData(grpc::IAsyncStreamReader<global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest> requestStream, grpc::IServerStreamWriter<global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -88,10 +79,10 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static grpc::ServerServiceDefinition BindService(GreeterBase serviceImpl)
+    public static grpc::ServerServiceDefinition BindService(SensorsBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SayHello, serviceImpl.SayHello).Build();
+          .AddMethod(__Method_GetSensorsData, serviceImpl.GetSensorsData).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -99,9 +90,9 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService {
     /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static void BindService(grpc::ServiceBinderBase serviceBinder, GreeterBase serviceImpl)
+    public static void BindService(grpc::ServiceBinderBase serviceBinder, SensorsBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_SayHello, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloRequest, global::Ozon256.WeatherSensors.SensorsEmulatorService.HelloReply>(serviceImpl.SayHello));
+      serviceBinder.AddMethod(__Method_GetSensorsData, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataRequest, global::Ozon256.WeatherSensors.SensorsEmulatorService.SensorDataResponse>(serviceImpl.GetSensorsData));
     }
 
   }

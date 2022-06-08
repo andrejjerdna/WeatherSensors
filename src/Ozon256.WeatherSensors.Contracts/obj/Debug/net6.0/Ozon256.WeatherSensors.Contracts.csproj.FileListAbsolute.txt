@@ -1,0 +1,12 @@
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Contracts\bin\Debug\net6.0\Ozon256.WeatherSensors.Contracts.deps.json
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Contracts\bin\Debug\net6.0\Ozon256.WeatherSensors.Contracts.dll
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Contracts\bin\Debug\net6.0\Ozon256.WeatherSensors.Contracts.pdb
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Contracts\obj\Debug\net6.0\Ozon256.WeatherSensors.Contracts.csproj.AssemblyReference.cache
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Contracts\obj\Debug\net6.0\Ozon256.WeatherSensors.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Contracts\obj\Debug\net6.0\Ozon256.WeatherSensors.Contracts.AssemblyInfoInputs.cache
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Contracts\obj\Debug\net6.0\Ozon256.WeatherSensors.Contracts.AssemblyInfo.cs
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Contracts\obj\Debug\net6.0\Ozon256.WeatherSensors.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Contracts\obj\Debug\net6.0\Ozon256.WeatherSensors.Contracts.dll
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Contracts\obj\Debug\net6.0\refint\Ozon256.WeatherSensors.Contracts.dll
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Contracts\obj\Debug\net6.0\Ozon256.WeatherSensors.Contracts.pdb
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.Contracts\obj\Debug\net6.0\ref\Ozon256.WeatherSensors.Contracts.dll
