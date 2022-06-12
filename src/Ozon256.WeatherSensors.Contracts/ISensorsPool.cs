@@ -7,4 +7,6 @@ public interface ISensorsPool
     Task<ISensor?> GetSensorsByGuid(Guid guid);
     Task<bool> DeleteSensorsByGuid(Guid guid);
     Task<ISensor> AddNewSensor(SensorType sensorType);
+    Task<bool> SubscribeToSensor(Guid guid);
+    Task<bool> UnsubscribeFromSensor(Guid guid);
 }

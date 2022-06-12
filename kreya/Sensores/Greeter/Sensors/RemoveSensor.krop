@@ -1,0 +1,12 @@
+{
+  "details": {
+    "methodFqn": "Greeter.Sensors.RemoveSensor"
+  },
+  "requests": [
+    {
+      "location": "RemoveSensor-request.json"
+    }
+  ],
+  "operationType": "unary",
+  "invokerName": "grpc"
+}

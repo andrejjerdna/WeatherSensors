@@ -9,6 +9,7 @@ namespace Ozon256.WeatherSensors.SensorsEmulatorService.Models;
 public class SensorsPool : ISensorsPool
 {
     private readonly ConcurrentDictionary<Guid, ISensor> _sensors = new();
+    private readonly ConcurrentDictionary<Guid, DateTime> _sensorsSu = new();
    
     public SensorsPool()
     {
@@ -20,8 +21,11 @@ public class SensorsPool : ISensorsPool
         return Task.FromResult(_sensors.Select(s => s.Key));
     }
 
-    public Task<IEnumerable<ISensorData>> GetSensorsData() => Task.FromResult(_sensors.Values.Select(s => s.GetData()));
-    
+    public Task<IEnumerable<ISensorData>> GetSensorsData()
+    {
+        return Task.FromResult(_sensors.Values.Where(s => _sensorsSu.ContainsKey(s.Guid)).Select(s => s.GetData()));
+    }
+
     public Task<ISensor?> GetSensorsByGuid(Guid guid)
     {
         if (_sensors.TryGetValue(guid, out var sensor))
@@ -48,6 +52,16 @@ public class SensorsPool : ISensorsPool
             return await Task.FromResult(result);
 
         return await Task.FromResult(default(ISensor));
+    }
+    
+    public async Task<bool> SubscribeToSensor(Guid guid)
+    {
+        return await Task.FromResult(_sensorsSu.TryAdd(guid, DateTime.UtcNow));
+    }
+
+    public async Task<bool> UnsubscribeFromSensor(Guid guid)
+    {
+        return await Task.FromResult(_sensorsSu.TryRemove(guid, out var sensor));
     }
 
     private void GetTestData(int count)

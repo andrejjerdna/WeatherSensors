@@ -34,8 +34,8 @@ public class SensorsService : Sensors.SensorsBase
     }
     
     public override async Task GetSensorsData(IAsyncStreamReader<ActionMessage> requestStream, 
-                                              IServerStreamWriter<SensorsDataCollectionResponse> responseStream, 
-                                              ServerCallContext context)
+        IServerStreamWriter<SensorsDataCollectionResponse> responseStream, 
+        ServerCallContext context)
     {
         while (!context.CancellationToken.IsCancellationRequested)
         {
@@ -95,6 +95,7 @@ public class SensorsService : Sensors.SensorsBase
         
         return await Task.FromResult(sensorData.GetSensorDataResponse());
     }
+    
     private async Task ServerToDataProcessor(IServerStreamWriter<SensorsDataCollectionResponse> responseStream, ServerCallContext context)
     {
         while (!context.CancellationToken.IsCancellationRequested)
@@ -113,13 +114,19 @@ public class SensorsService : Sensors.SensorsBase
 
     private async Task DataProcessorToServer(IAsyncStreamReader<ActionMessage> requestStream, ServerCallContext context)
     {
-            while (await requestStream.MoveNext() && !context.CancellationToken.IsCancellationRequested)
-            {
-                var actionMessage = requestStream.Current;
+        while (await requestStream.MoveNext() && !context.CancellationToken.IsCancellationRequested)
+        {
+            var actionMessage = requestStream.Current;
                 
-                var add = actionMessage.Add.ToArray();
+            var add = actionMessage.Add.ToArray();
 
-                var remove = actionMessage.Remove.ToArray();
-            }
+            foreach (var a in add)
+                await _sensorsPool.SubscribeToSensor(new Guid(a));
+
+            var remove = actionMessage.Remove.ToArray();
+            
+            foreach (var r in remove)
+                await _sensorsPool.UnsubscribeFromSensor(new Guid(r));
+        }
     }
-    }
+}

@@ -1,0 +1,12 @@
+{
+  "details": {
+    "methodFqn": "Greeter.Sensors.GetAllSensors"
+  },
+  "requests": [
+    {
+      "location": "GetAllSensors-request.json"
+    }
+  ],
+  "operationType": "unary",
+  "invokerName": "grpc"
+}
