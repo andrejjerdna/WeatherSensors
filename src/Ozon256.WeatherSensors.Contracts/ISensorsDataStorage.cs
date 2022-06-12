@@ -2,9 +2,10 @@
 
 public interface ISensorsDataStorage
 {
+    Queue<Guid> SubscriptionSensors { get; }
+    Queue<Guid> UnSubscriptionSensors { get; }
+    Task<bool> AddSubscriptionSensor(Guid guid);
+    Task<bool>  AddUnsubscriptionSensor(Guid guid);
     void Add(ISensorData sensorData);
-    void RemoveSensor(Guid guid);
-    void AddSensor(Guid guid);
-    
-    
+    Task<IEnumerable<ISensorData>?> GetSensorDataByGuid(Guid guid);
 }

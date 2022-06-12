@@ -6,35 +6,34 @@ namespace Ozon256.WeatherSensors.DataProcessorClient.Controllers;
 [Route("sensors")]
 public class SensorsController : Controller
 {
-    private readonly ISensorsPool _sensorsPool;
+    private readonly ISensorsDataStorage _sensorsDataStorage;
 
-    public SensorsController(ISensorsPool sensorsPool)
+    public SensorsController(ISensorsDataStorage sensorsDataStorage)
     {
-        _sensorsPool = sensorsPool;
+        _sensorsDataStorage = sensorsDataStorage;
     }
     
     [HttpGet("{guid:guid}")]
-    [Route(nameof(GetSensorByGuid))]
-    public async Task<IActionResult> GetSensorByGuid([FromQuery]Guid guid)
+    [Route(nameof(SubscriptionSensor))]
+    public async Task<IActionResult> SubscriptionSensor([FromQuery]Guid guid)
     {
-        var sensors = await _sensorsPool.GetSensorsByGuid(guid);
+        var result = await _sensorsDataStorage.AddSubscriptionSensor(guid);
         
-        if (sensors is null)
+        if (!result)
             return BadRequest();
         else
-            return Ok(sensors);
+            return Ok(result);
     }
     
     [HttpGet("{guid:guid}")]
-    [Route(nameof(DeleteSensorByGuid))]
-    public async Task<IActionResult?> DeleteSensorByGuid(Guid guid)
+    [Route(nameof(UnsubscriptionSensor))]
+    public async Task<IActionResult> UnsubscriptionSensor([FromQuery]Guid guid)
     {
-        var sensors = await _sensorsPool.DeleteSensorsByGuid(guid);
+        var result = await _sensorsDataStorage.AddUnsubscriptionSensor(guid);
         
-        if (!sensors)
+        if (!result)
             return BadRequest();
         else
-            return Ok(sensors);
+            return Ok(result);
     }
-
 }

@@ -10,6 +10,7 @@ public abstract class SensorBase : ISensor
     public SensorType SensorType { get; init; }
     public virtual ISensorData GetData() => throw new NotImplementedException();
     public ISensorData LastData => _lastData;
+    public DateTime AddTime { get; init; }
 
     /// <summary>
     /// Generate a new value

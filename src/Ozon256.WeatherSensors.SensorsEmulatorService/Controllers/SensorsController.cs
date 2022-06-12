@@ -36,40 +36,4 @@ public class SensorsController : Controller
         
         return Ok(sensors);
     }
-    
-    [HttpGet("{guid:guid}")]
-    [Route(nameof(GetSensorByGuid))]
-    public async Task<IActionResult> GetSensorByGuid([FromQuery]Guid guid)
-    {
-        var sensors = await _sensorsPool.GetSensorsByGuid(guid);
-        
-        if (sensors is null)
-            return BadRequest();
-        else
-            return Ok(sensors);
-    }
-    
-    [HttpGet("{guid:guid}")]
-    [Route(nameof(DeleteSensorByGuid))]
-    public async Task<IActionResult?> DeleteSensorByGuid([FromQuery]Guid guid)
-    {
-        var sensors = await _sensorsPool.DeleteSensorsByGuid(guid);
-        
-        if (!sensors)
-            return BadRequest();
-        else
-            return Ok(sensors);
-    }
-    
-    [HttpPost]
-    [Route(nameof(AddSensor))]
-    public async Task<IActionResult?> AddSensor(ISensor sensor)
-    {
-        var result = await _sensorsPool.AddSensors(sensor);
-        
-        if (!result)
-            return BadRequest();
-        else
-            return Ok(result);
-    }
-}
+ }

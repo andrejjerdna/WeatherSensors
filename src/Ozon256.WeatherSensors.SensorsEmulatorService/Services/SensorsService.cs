@@ -2,8 +2,12 @@ using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Microsoft.Extensions.Options;
 using Ozon256.WeatherSensors.Contracts;
+using Ozon256.WeatherSensors.DataProcessorClient;
 using Ozon256.WeatherSensors.SensorsEmulatorService;
+using Ozon256.WeatherSensors.SensorsEmulatorService.Extensions;
+using Ozon256.WeatherSensors.SensorsEmulatorService.Models;
 using Ozon256.WeatherSensors.SensorsEmulatorService.Options;
+using SensorType = Ozon256.WeatherSensors.DataProcessorClient.SensorTypeRequest;
 
 namespace Ozon256.WeatherSensors.SensorsEmulatorService.Services;
 
@@ -13,7 +17,7 @@ public class SensorsService : Sensors.SensorsBase
     private readonly IOptions<SensorsPoolConfig> _sensorsPoolConfig;
     private readonly IServiceProvider _provider;
     private readonly ILogger<SensorsService> _logger;
-
+    
     /// <summary>
     /// .ctor
     /// </summary>
@@ -29,63 +33,93 @@ public class SensorsService : Sensors.SensorsBase
         _logger = logger;
     }
     
-    public override async Task GetSensorsData(IAsyncStreamReader<SensorDataRequest> requestStream,
-        IServerStreamWriter<SensorDataResponse> responseStream, ServerCallContext context)
+    public override async Task GetSensorsData(IAsyncStreamReader<ActionMessage> requestStream, 
+                                              IServerStreamWriter<SensorsDataCollectionResponse> responseStream, 
+                                              ServerCallContext context)
     {
         while (!context.CancellationToken.IsCancellationRequested)
         {
-            await GetRequest(requestStream, context);
-            await GetResponse(responseStream, context);
-            await Task.Delay(_sensorsPoolConfig.Value.UpdateTime, context.CancellationToken);
+            try
+            {
+                var dataProcessorToServer = DataProcessorToServer(requestStream, context);
+                var serverToDataProcessor = ServerToDataProcessor(responseStream, context);
+
+                await Task.WhenAll(dataProcessorToServer, serverToDataProcessor);
+            }
+            catch (Exception e)
+            {
+                _logger.LogWarning(e.Message);
+            }
         }
     }
 
-    private async Task GetResponse(IAsyncStreamWriter<SensorDataResponse> responseStream, ServerCallContext context)
+    public override async Task<SensorsDataCollectionResponse> GetAllSensors(Empty request, ServerCallContext context)
+    {
+        var sensorsDataCollectionResponse = new SensorsDataCollectionResponse();
+        
+        var sensorsData = await _sensorsPool.GetSensorsData();
+
+        foreach (var sensorData in sensorsData)
+        {
+            sensorsDataCollectionResponse.SensorDataResponse.Add(sensorData.GetSensorDataResponse());
+        }
+        
+        return await Task.FromResult(sensorsDataCollectionResponse);
+    }
+    
+    public override async Task<Empty> RemoveSensor(RemoveSensorRequest request, ServerCallContext context)
+    {
+        await _sensorsPool.DeleteSensorsByGuid(new Guid(request.Guid));
+        return new Empty();
+    }
+    
+    public override async Task<SensorDataResponse> AddSensor(AddSensorRequest request, ServerCallContext context)
+    {
+        ISensor result;
+        if (request.SensorType == SensorTypeRequest.Outside)
+            result = await _sensorsPool.AddNewSensor(Contracts.SensorType.Outside);
+        else
+            result = await _sensorsPool.AddNewSensor(Contracts.SensorType.Inside);
+
+        return result.GetSensorDataResponse();
+    }
+    
+    public override async Task<SensorDataResponse> GetSensorByGuid(GetSensorByGuidRequest request, ServerCallContext context)
     {
         var sensorsData = await _sensorsPool.GetSensorsData();
 
-        foreach (var data in sensorsData)
-        {
-            if (context.CancellationToken.IsCancellationRequested)
-            {
-                _logger.LogInformation("Response is cancelled!");
-                break;
-            }
-
-            var result = new SensorDataResponse()
-            {
-                Guid = data.SensorGuid.ToString(),
-                Humidity = data.Humidity,
-                Temperature = data.Temperature,
-                Ppm = data.Ppm,
-                Timestamp = Timestamp.FromDateTime(data.TimeStamp)
-            };
-            
-            await responseStream.WriteAsync(result, context.CancellationToken);
-            
-            _logger.LogInformation("Response is done!");
-        }
+        var sensorData = sensorsData.FirstOrDefault(s => s.SensorGuid.ToString() == request.Guid);
         
+        if(sensorData == null)
+            return await Task.FromResult(default(SensorDataResponse));
+        
+        return await Task.FromResult(sensorData.GetSensorDataResponse());
     }
-
-    private async Task GetRequest(IAsyncStreamReader<SensorDataRequest> requestStream, ServerCallContext context)
+    private async Task ServerToDataProcessor(IServerStreamWriter<SensorsDataCollectionResponse> responseStream, ServerCallContext context)
     {
-        var sensorDataRequests = requestStream.ReadAllAsync();
-
-        await foreach (var sensorDataRequest in sensorDataRequests)
+        while (!context.CancellationToken.IsCancellationRequested)
         {
-            if (context.CancellationToken.IsCancellationRequested)
-            {
-                _logger.LogInformation("Request is cancelled!");
-                break;
-            }
-            
-            var delGuids = sensorDataRequest.Unsubscription.Select(g => new Guid(g)).ToArray();
+            var sensorsData = await _sensorsPool.GetSensorsData();
 
-            foreach (var guid in delGuids)
-                await _sensorsPool.DeleteSensorsByGuid(guid);
-            
+            var sensorsDataCollection = new SensorsDataCollectionResponse();
 
+            foreach (var data in sensorsData)
+                sensorsDataCollection.SensorDataResponse.Add(data.GetSensorDataResponse());
+
+            await responseStream.WriteAsync(sensorsDataCollection, context.CancellationToken);
+            await Task.Delay(_sensorsPoolConfig.Value.UpdateTime);
         }
     }
-}
+
+    private async Task DataProcessorToServer(IAsyncStreamReader<ActionMessage> requestStream, ServerCallContext context)
+    {
+            while (await requestStream.MoveNext() && !context.CancellationToken.IsCancellationRequested)
+            {
+                var actionMessage = requestStream.Current;
+                
+                var add = actionMessage.Add.ToArray();
+
+                var remove = actionMessage.Remove.ToArray();
+            }
+    }
+    }

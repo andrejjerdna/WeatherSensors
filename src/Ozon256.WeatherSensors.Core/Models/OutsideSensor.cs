@@ -15,6 +15,7 @@ public sealed class OutsideSensor : SensorBase
         _humidity = _random.Next(10, 90);
         _ppm = _random.Next(300, 400);
 
+        AddTime = DateTime.Now.ToUniversalTime();
         SensorType = SensorType.Outside;
     }
 
@@ -27,7 +28,7 @@ public sealed class OutsideSensor : SensorBase
         _lastData = new SensorData
         {
             SensorGuid = Guid,
-            TimeStamp = DateTime.Now.ToUniversalTime(),
+            UpdateTime = DateTime.Now.ToUniversalTime(),
             Temperature = _temperature,
             Humidity = _humidity,
             Ppm = _ppm,

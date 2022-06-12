@@ -6,5 +6,5 @@ public interface ISensorsPool
     Task<IEnumerable<ISensorData>> GetSensorsData();
     Task<ISensor?> GetSensorsByGuid(Guid guid);
     Task<bool> DeleteSensorsByGuid(Guid guid);
-    Task<bool> AddSensors(ISensor sensor);
+    Task<ISensor> AddNewSensor(SensorType sensorType);
 }

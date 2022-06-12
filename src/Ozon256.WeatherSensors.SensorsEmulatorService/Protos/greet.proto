@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "Ozon256.WeatherSensors.SensorsEmulatorService";
+option csharp_namespace = "Ozon256.WeatherSensors.DataProcessorClient";
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
@@ -8,36 +8,44 @@ import "google/protobuf/timestamp.proto";
 package Greeter;
 
 service Sensors {
-  rpc GetSensorsData(stream ActionMessage) returns (stream SensorDataResponse);
+  rpc GetSensorsData(stream ActionMessage) returns (stream SensorsDataCollectionResponse);
+  rpc GetSensorByGuid(GetSensorByGuidRequest) returns (SensorDataResponse);
+  rpc GetAllSensors(google.protobuf.Empty) returns (SensorsDataCollectionResponse);
+  rpc AddSensor(AddSensorRequest) returns (SensorDataResponse);
+  rpc RemoveSensor(RemoveSensorRequest) returns (google.protobuf.Empty);
 }
 
-message SensorDataResponse
-{
+message SensorDataResponse {
   string guid = 1;
   int32 temperature = 2;
   int32 humidity = 3;
   int32 ppm = 4;
-  SensorType sensorType = 5;
-  google.protobuf.Timestamp timestamp = 6;
+  google.protobuf.Timestamp updatetime = 5;
+}
+
+message GetSensorByGuidRequest {
+  string guid = 1;
+}
+
+message SensorsDataCollectionResponse {
+  repeated SensorDataResponse sensorDataResponse = 1;
 }
 
 message ActionMessage {
-  oneof action {
-    AddSensorRequest add = 1;
-    RemoveSensorRequest remove = 2;
-  }
+  string clientguid = 1;
+  repeated string add = 2;
+  repeated string remove = 3;
 }
 
 message AddSensorRequest {
-  repeated string guid = 1;
-  SensorType sensorType = 2;
+  SensorTypeRequest sensorType = 1;
 }
 
 message RemoveSensorRequest {
   string guid = 1;
 }
 
-enum SensorType {
+enum SensorTypeRequest {
   INSIDE = 0;
   OUTSIDE = 1;
 }

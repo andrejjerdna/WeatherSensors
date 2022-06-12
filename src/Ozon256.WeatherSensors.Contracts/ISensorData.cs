@@ -6,5 +6,5 @@ public interface ISensorData
     int Temperature { get; }
     int Humidity { get; }
     int Ppm { get; }
-    DateTime TimeStamp { get; }
+    DateTime UpdateTime { get; }
 }

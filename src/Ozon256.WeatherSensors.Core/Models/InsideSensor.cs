@@ -15,9 +15,10 @@ public class InsideSensor : SensorBase
         _humidity = _random.Next(30, 80);
         _ppm = _random.Next(400, 900);
 
+        AddTime = DateTime.Now.ToUniversalTime();
         SensorType = SensorType.Inside;
     }
-
+    
     public override ISensorData GetData()
     {
         _temperature = GetNewValue(_temperature, 10, 30, 10);
@@ -27,7 +28,7 @@ public class InsideSensor : SensorBase
         _lastData = new SensorData
         {
             SensorGuid = Guid,
-            TimeStamp = DateTime.Now.ToUniversalTime(),
+            UpdateTime = DateTime.Now.ToUniversalTime(),
             Temperature = _temperature,
             Humidity = _humidity,
             Ppm = _ppm,

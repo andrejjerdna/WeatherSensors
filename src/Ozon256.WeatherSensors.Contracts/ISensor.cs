@@ -22,4 +22,9 @@ public interface ISensor
     /// Latest sensor data 
     /// </summary>
     ISensorData LastData { get; }
+    
+    /// <summary>
+    /// Add time
+    /// </summary>
+    DateTime AddTime { get; }
 }
