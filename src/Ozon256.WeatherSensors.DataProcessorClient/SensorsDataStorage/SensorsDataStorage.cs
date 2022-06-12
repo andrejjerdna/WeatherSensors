@@ -10,10 +10,6 @@ public class SensorsDataStorage : ISensorsDataStorage
     
     private readonly ConcurrentDictionary<Guid, List<ISensorData>> _sensorsData = new();
     
-    private readonly ConcurrentDictionary<Guid, double> _averageTemperature = new();
-    private readonly ConcurrentDictionary<Guid, double> _averageHumidity = new();
-    private readonly ConcurrentDictionary<Guid, double> _averagePpm = new();
-
     public Queue<Guid> SubscriptionSensors => _scriptionSensors;
     public Queue<Guid> UnSubscriptionSensors => _ubscriptionSensors;
 

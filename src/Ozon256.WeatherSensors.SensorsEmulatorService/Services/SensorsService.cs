@@ -15,7 +15,6 @@ public class SensorsService : Sensors.SensorsBase
 {
     private readonly ISensorsPool _sensorsPool;
     private readonly IOptions<SensorsPoolConfig> _sensorsPoolConfig;
-    private readonly IServiceProvider _provider;
     private readonly ILogger<SensorsService> _logger;
     
     /// <summary>
@@ -25,11 +24,10 @@ public class SensorsService : Sensors.SensorsBase
     /// <param name="sensorsPoolConfig"></param>
     /// <param name="provider"></param>
     /// <param name="logger"></param>
-    public SensorsService(ISensorsPool sensorsPool, IOptions<SensorsPoolConfig> sensorsPoolConfig, IServiceProvider provider, ILogger<SensorsService> logger)
+    public SensorsService(ISensorsPool sensorsPool, IOptions<SensorsPoolConfig> sensorsPoolConfig, ILogger<SensorsService> logger)
     {
         _sensorsPool = sensorsPool;
         _sensorsPoolConfig = sensorsPoolConfig;
-        _provider = provider;
         _logger = logger;
     }
     
