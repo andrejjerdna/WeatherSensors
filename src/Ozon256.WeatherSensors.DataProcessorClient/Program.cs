@@ -10,6 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddGrpc();
 builder.Services.AddMvcCore();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 builder.Services.AddGrpcClient<Ozon256.WeatherSensors.DataProcessorClient.Sensors.SensorsClient>(
         options =>
         {
@@ -34,5 +37,8 @@ app.UseEndpoints(
         b.MapControllers();
         app.MapGrpcService<SensorsService>();
     });
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.Run();

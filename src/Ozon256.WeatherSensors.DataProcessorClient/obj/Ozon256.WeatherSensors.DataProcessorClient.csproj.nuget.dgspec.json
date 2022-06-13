@@ -45,6 +45,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -109,6 +115,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -177,6 +189,10 @@
             "Grpc.AspNetCore": {
               "target": "Package",
               "version": "[2.46.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.1, )"
             }
           },
           "imports": [
@@ -253,6 +269,10 @@
             "Grpc.AspNetCore": {
               "target": "Package",
               "version": "[2.46.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.1, )"
             }
           },
           "imports": [

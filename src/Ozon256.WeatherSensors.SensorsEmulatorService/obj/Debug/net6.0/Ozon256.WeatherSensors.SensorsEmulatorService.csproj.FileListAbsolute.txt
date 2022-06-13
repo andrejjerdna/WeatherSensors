@@ -31,3 +31,8 @@ C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.SensorsEmulat
 C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.SensorsEmulatorService\bin\Debug\net6.0\Ozon256.WeatherSensors.Contracts.pdb
 C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.SensorsEmulatorService\bin\Debug\net6.0\Ozon256.WeatherSensors.Core.dll
 C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.SensorsEmulatorService\bin\Debug\net6.0\Ozon256.WeatherSensors.Core.pdb
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.SensorsEmulatorService\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.SensorsEmulatorService\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.SensorsEmulatorService\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.SensorsEmulatorService\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\33pro\RiderProjects\homework-2\src\Ozon256.WeatherSensors.SensorsEmulatorService\obj\Debug\net6.0\Ozon256.WeatherSensors.SensorsEmulatorService.MvcApplicationPartsAssemblyInfo.cs

@@ -13,9 +13,9 @@ public class DataController : Controller
         _dataManager = dataManager;
     }
     
-    [HttpGet("{guid:guid}, {startTime:datetime}, {endTime:datetime}")]
+    [HttpGet]
     [Route(nameof(SensorDataSelectionByInterval))]
-    public async Task<IActionResult> SensorDataSelectionByInterval([FromQuery]Guid guid, DateTime startTime, DateTime endTime)
+    public async Task<IActionResult> SensorDataSelectionByInterval([FromQuery]Guid guid, [FromQuery]DateTime startTime, [FromQuery]DateTime endTime)
     {
         var result = await _dataManager.GetSensorDataByGuidForInterval(guid, startTime, endTime);
         
@@ -25,9 +25,9 @@ public class DataController : Controller
             return Ok(result);
     }
     
-    [HttpGet("{guid:guid}, {startTime:datetime}, {endTime:datetime}")]
+    [HttpGet]
     [Route(nameof(SensorDataSelectionByMinutes))]
-    public async Task<IActionResult> SensorDataSelectionByMinutes([FromQuery]Guid guid, DateTime startTime, int minutes)
+    public async Task<IActionResult> SensorDataSelectionByMinutes([FromQuery]Guid guid, [FromQuery]DateTime startTime, [FromQuery]int minutes)
     {
         var result = await _dataManager.GetSensorDataByGuidForInterval(guid, startTime, minutes);
         

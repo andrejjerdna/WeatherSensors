@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "SkHMeCoJGQvBqLURBomgn9zc4xpU0ycnlcxMKjdwKX+BMElMWqGg1MMCfUHd8VY0b73x4DiqbNCgiPmzYGAFNA==",
+  "dgSpecHash": "wjRC2M0rEHWaU2GKgraU0vasPoWmwY2oRMxsdnubUXYAFoDXoZXhO9bk6Jtu6V/YwSTeBEKL4ZPgJk++7nTJhw==",
   "success": true,
   "projectFilePath": "C:\\Users\\33pro\\RiderProjects\\homework-2\\src\\Ozon256.WeatherSensors.Core\\Ozon256.WeatherSensors.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\33pro\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\33pro\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\33pro\\.nuget\\packages\\swashbuckle.aspnetcore\\6.3.1\\swashbuckle.aspnetcore.6.3.1.nupkg.sha512",
+    "C:\\Users\\33pro\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.3.1\\swashbuckle.aspnetcore.swagger.6.3.1.nupkg.sha512",
+    "C:\\Users\\33pro\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.3.1\\swashbuckle.aspnetcore.swaggergen.6.3.1.nupkg.sha512",
+    "C:\\Users\\33pro\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.3.1\\swashbuckle.aspnetcore.swaggerui.6.3.1.nupkg.sha512"
+  ],
   "logs": []
 }

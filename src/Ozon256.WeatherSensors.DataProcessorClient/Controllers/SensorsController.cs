@@ -3,17 +3,17 @@ using Ozon256.WeatherSensors.Contracts;
 
 namespace Ozon256.WeatherSensors.DataProcessorClient.Controllers;
 
-[Route("sensors")]
-public class SensorsController : Controller
+[Route("subscription")]
+public class SubscriptionSensorsController : Controller
 {
     private readonly ISensorsDataStorage _sensorsDataStorage;
 
-    public SensorsController(ISensorsDataStorage sensorsDataStorage)
+    public SubscriptionSensorsController(ISensorsDataStorage sensorsDataStorage)
     {
         _sensorsDataStorage = sensorsDataStorage;
     }
     
-    [HttpGet("{guid:guid}")]
+    [HttpGet]
     [Route(nameof(SubscriptionSensor))]
     public async Task<IActionResult> SubscriptionSensor([FromQuery]Guid guid)
     {
@@ -25,7 +25,7 @@ public class SensorsController : Controller
             return Ok(result);
     }
     
-    [HttpGet("{guid:guid}")]
+    [HttpGet]
     [Route(nameof(UnsubscriptionSensor))]
     public async Task<IActionResult> UnsubscriptionSensor([FromQuery]Guid guid)
     {
